@@ -6,7 +6,11 @@
 
   <groupId>com.suns</groupId>
   <artifactId>mk-cache</artifactId>
+  <packaging>pom</packaging>
   <version>1.0</version>
+  <modules>
+    <module>springmvc-cache</module>
+  </modules>
 
   <name>mk-cache</name>
   <!-- FIXME change it to the project's website -->
