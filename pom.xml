@@ -10,6 +10,7 @@
   <version>1.0</version>
   <modules>
     <module>springmvc-cache</module>
+    <module>springboot-cache</module>
   </modules>
 
   <name>mk-cache</name>

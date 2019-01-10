@@ -1,0 +1,16 @@
+com\suns\dao\AreasDao.class
+com\suns\controller\ProvincesController.class
+com\suns\controller\TestController.class
+com\suns\dao\ProvincesDao.class
+com\suns\service\impl\AreasServiceImpl.class
+com\suns\service\ProvincesService.class
+com\suns\entity\Areas.class
+com\suns\service\AreasService.class
+com\suns\service\impl\ProvincesServiceImpl.class
+com\suns\dao\CitiesDao.class
+com\suns\service\impl\ProvincesServiceImpl2.class
+com\suns\service\impl\CitiesServiceImpl.class
+com\suns\service\CitiesService.class
+com\suns\entity\Cities.class
+com\suns\entity\Provinces.class
+com\suns\swagger\SwaggerConfig.class

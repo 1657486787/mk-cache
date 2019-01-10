@@ -7,6 +7,7 @@ import com.suns.service.ProvincesService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service("provincesService2")
+@CacheConfig(cacheNames = "provinces2")
 public class ProvincesServiceImpl2 implements ProvincesService {
     private static final Logger logger = LoggerFactory.getLogger(ProvincesServiceImpl2.class);
     @Autowired
@@ -26,7 +28,8 @@ public class ProvincesServiceImpl2 implements ProvincesService {
         return provincesDao.list();
     }
 
-    @Cacheable(value = "provinces2")
+//    @Cacheable(value = "provinces2")
+    @Cacheable
     @Override
     public Provinces detail(String provinceid) {
         System.out.println("数据库中得到数据");

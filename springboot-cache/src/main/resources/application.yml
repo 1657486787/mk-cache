@@ -1,0 +1,24 @@
+#启动: nohup java  -jar  xxx.jar >  log.admin 2>&1 &
+server:
+  port: 8090
+  compression:
+    enabled: true
+  connection-timeout: 3000
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.50.10.201:3306/cfb_esign?useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull
+    username: develop
+    password:
+    test-on-borrow: false
+    time-between-eviction-runs-millis: 3600000
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+#logging:
+#  level:
+#    com:
+#      enjoy:
+#        dao:  debug
