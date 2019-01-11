@@ -32,12 +32,15 @@ redis与spring cache整合
         <version>3.3.5</version>
     </dependency>
 
-2.增加配置
+2.初始化数据库脚本
+    cache.sql
+
+3.增加配置
     详见spring-redis.xml
-3.使用
+4.使用
     3.1使用redisTemplate
         详见：ProvincesServiceImpl
     3.2使用Spring cache
         详见：ProvincesServiceImpl2
 
-4. 入口==》通过swagger访问：http://localhost:8080/swagger-ui.html
+5. 入口==》通过swagger访问：http://localhost:8080/swagger-ui.html

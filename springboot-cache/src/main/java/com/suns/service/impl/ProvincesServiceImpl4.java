@@ -73,6 +73,8 @@ public class ProvincesServiceImpl4 extends ProvincesServiceImpl implements Provi
     @CacheEvict(value = CacheConfig.CACHE_NAME,key = "#entity.provinceid")
     public Provinces add(Provinces entity) {
         super.add(entity);
+        //增加到布隆过滤器
+        bloomFilter.put(entity.getProvinceid());
         return entity;
     }
 

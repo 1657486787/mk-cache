@@ -28,11 +28,14 @@ redis与spring cache整合
         <version>${springfox.version}</version>
     </dependency>
 
-2.增加配置
+2.初始化数据库脚本
+    cache.sql
+
+3.增加配置
     缓存配置CacheConfig
     数据库扫描配置@MapperScan("com.suns.dao")
 
-3.使用
+4.使用
     3.1原始实现,不加缓存
         详见：ProvincesServiceImpl
     3.2使用redisTemplate
@@ -48,4 +51,4 @@ redis与spring cache整合
         解决办法：使用布隆过滤器
         详见：ProvincesServiceImpl4    detail方法
 
-4. 入口==》通过swagger访问：http://localhost:8090/swagger-ui.html
+5. 入口==》通过swagger访问：http://localhost:8090/swagger-ui.html
