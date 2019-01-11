@@ -37,7 +37,6 @@ public class ProvincesController {
 
     private static final Logger logger = LoggerFactory.getLogger(ProvincesController.class);
 
-    @Qualifier("provincesService2")
     @Autowired
     private ProvincesService provincesService;
 

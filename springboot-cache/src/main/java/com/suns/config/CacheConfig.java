@@ -19,13 +19,18 @@ import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.cache.support.SimpleCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.cache.RedisCacheConfiguration;
+import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import java.lang.reflect.Method;
+import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * ClassName: CacheConfig <br>
@@ -38,6 +43,7 @@ import java.util.Collections;
 @EnableCaching
 public class CacheConfig extends CachingConfigurerSupport {
 
+    public static final String CACHE_NAME = "province";
 
     //key的生成，springcache的内容，跟具体实现缓存器无关
     @Bean
@@ -59,24 +65,28 @@ public class CacheConfig extends CachingConfigurerSupport {
 
 
     //不支持过期时间
-    @Bean
-    public CacheManager cacheManager() {
-        //jdk里，内存管理器
-        SimpleCacheManager cacheManager = new SimpleCacheManager();
-        cacheManager.setCaches(Collections.singletonList(new ConcurrentMapCache("provinces2")));
-        return cacheManager;
-    }
-
 //    @Bean
-//    public CacheManager cacheManager(RedisConnectionFactory connectionFactory) {
-//        return RedisCacheManager
-//                .builder(connectionFactory)
-//                .cacheDefaults(
-//                        RedisCacheConfiguration.defaultCacheConfig()
-//                                .entryTtl(Duration.ofSeconds(20))) //缓存时间绝对过期时间20s
-//                .transactionAware()
-//                .build();
+//    public CacheManager cacheManager() {
+//        //jdk里，内存管理器
+//        SimpleCacheManager cacheManager = new SimpleCacheManager();
+//        List list = new ArrayList<>();
+//        list.add(new ConcurrentMapCache(CacheConfig.CACHE_NAME));
+//        list.add(new ConcurrentMapCache("test"));
+////        cacheManager.setCaches(Collections.singletonList(new ConcurrentMapCache("provinces")));
+//        cacheManager.setCaches(list);
+//        return cacheManager;
 //    }
+
+    @Bean
+    public CacheManager cacheManager(RedisConnectionFactory connectionFactory) {
+        return RedisCacheManager
+                .builder(connectionFactory)
+                .cacheDefaults(
+                        RedisCacheConfiguration.defaultCacheConfig()
+                                .entryTtl(Duration.ofSeconds(20))) //缓存时间绝对过期时间20s
+                .transactionAware()
+                .build();
+    }
 
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
