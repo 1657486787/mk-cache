@@ -57,6 +57,7 @@ public class ProvincesController {
         try {
             return provincesService.detail(provinceid);
         } catch (Exception e) {
+            logger.error("查询失败",e);
             return null;
         }
     }

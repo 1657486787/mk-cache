@@ -37,7 +37,7 @@ public class ProvincesController {
 
     private static final Logger logger = LoggerFactory.getLogger(ProvincesController.class);
 
-    @Qualifier("provincesService2")
+    @Qualifier("provincesService")
     @Autowired
     private ProvincesService provincesService;
 
@@ -58,6 +58,7 @@ public class ProvincesController {
         try {
             return provincesService.detail(provinceid);
         } catch (Exception e) {
+            logger.error("查询失败",e);
             return null;
         }
     }

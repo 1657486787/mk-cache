@@ -52,3 +52,5 @@ redis与spring cache整合
         详见：ProvincesServiceImpl4    detail方法
 
 5. 入口==》通过swagger访问：http://localhost:8090/swagger-ui.html
+
+6.swagger页面空白，浏览器报错“Uncaught ReferenceError: SwaggerUi is not defined ”==》需要强制刷新浏览器ctrl+f5

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("provincesService2")
+@Service("provincesService")
 public class ProvincesServiceImpl2 implements ProvincesService {
     private static final Logger logger = LoggerFactory.getLogger(ProvincesServiceImpl2.class);
     @Autowired
@@ -26,7 +26,7 @@ public class ProvincesServiceImpl2 implements ProvincesService {
         return provincesDao.list();
     }
 
-    @Cacheable(value = "provinces2")
+    @Cacheable(value = "provinces")
     @Override
     public Provinces detail(String provinceid) {
         System.out.println("数据库中得到数据");
@@ -37,21 +37,21 @@ public class ProvincesServiceImpl2 implements ProvincesService {
         return provinces;
     }
 
-    @CachePut(value = "provinces2",key = "#entity.provinceid")
+    @CachePut(value = "provinces",key = "#entity.provinceid")
     @Override
     public Provinces update(Provinces entity) {
         provincesDao.update(entity);
         return entity;
     }
 
-    @CacheEvict(value = "provinces2",key = "#entity.provinceid")
+    @CacheEvict(value = "provinces",key = "#entity.provinceid")
     @Override
     public Provinces add(Provinces entity) {
         provincesDao.insert(entity);
         return entity;
     }
 
-    @CacheEvict(value = "provinces2",key = "provinceid")
+    @CacheEvict(value = "provinces",key = "provinceid")
     @Override
     public void delete(String provinceid) {
         provincesDao.delete(provinceid);

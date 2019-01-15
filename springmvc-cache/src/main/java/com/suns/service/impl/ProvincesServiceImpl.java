@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-@Service("provincesService")
+//@Service("provincesService")
 public class ProvincesServiceImpl implements ProvincesService {
     private static final Logger logger = LoggerFactory.getLogger(ProvincesServiceImpl.class);
     @Autowired
