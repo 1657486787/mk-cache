@@ -46,11 +46,13 @@ public class DataSourceConfig {
         return jdbcTemplate;
     }
 
+    //事务管理器
     @Bean
     public DataSourceTransactionManager dataSourceTransactionManager() throws PropertyVetoException {
         return new DataSourceTransactionManager(dataSource());
     }
 
+    //事务模板
     @Bean
     public TransactionTemplate transactionTemplate(PlatformTransactionManager platformTransactionManager){
         return new TransactionTemplate(platformTransactionManager);

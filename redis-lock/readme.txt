@@ -72,6 +72,8 @@
     Redis配置：RedisConfig
 4.使用
     4.1模拟并发售票：LockController
-    4.2
+    4.2模拟编程式事务：TransController
+        使用事务模板提交-spring编程式事务
+        使用事务管理器-java编程式事务
 
 5. 入口==》通过swagger访问：http://localhost:8090/swagger-ui.html

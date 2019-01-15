@@ -33,14 +33,14 @@ public class LockController {
     private static int threadCount = 5;//5线程并发抢票
     private CountDownLatch cdl = new CountDownLatch(threadCount);
 
-//    @Resource(name="redisLock")
-    @Resource(name="mysqlLock")
+    @Resource(name="redisLock")
+//    @Resource(name="mysqlLock")
     private Lock lock;
 
     @ApiOperation(value = "模拟售票")
     @RequestMapping(value = "/sale",method = RequestMethod.GET)
     public Long query(){
-
+        count = 20;
         for(int i=0;i<threadCount;i++){
             new Thread(new TicketRunnable()).start();
         }
