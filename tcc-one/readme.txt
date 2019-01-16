@@ -45,6 +45,10 @@
         提供者（被调用方）：
         @Compensable(confirmMethod = "confirmOrder", cancelMethod = "cancelOrder",
                     transactionContextEditor = DubboTransactionContextEditor.class)
+
+    3.3tcc框架对业务方法的要求：
+       try-confirm-cancel三个方法，都必须要满足幂等性/可查询性  （幂等性指的是方法无论被调用多少次，结果都是一样的）
+
 4.使用
 
     4.1依赖dubbo及zookeeper,需要先启动本地的zookeeper
