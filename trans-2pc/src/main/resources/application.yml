@@ -72,7 +72,3 @@ spring:
   jta:
     log-dir: classpath:tx-logs
     transaction-manager-id: txManager
-#    atomikos:
-#      properties:
-#        log-base-dir: trans-2pc1
-#        log-base-name: .log/trans-2pc1
