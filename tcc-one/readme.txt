@@ -33,12 +33,18 @@
 2.初始化数据库脚本
     init.sql
     建两个数据库，在不同数据库建表，使用tcc来管理分布式事务
-    注意需要自己新建tcc的记录表：TCC_TRANSACTION_ORDER（表名tcc_transaction_order 其中tcc_transaction为固定的前缀，ORDER为自定义的）
+    注意需要自己新建tcc的日志表：TCC_TRANSACTION_ORDER（表名tcc_transaction_order 其中tcc_transaction为固定的前缀，ORDER为自定义的）
 
 3.增加配置
 
-    tcc配置：tcc.xml
+    3.1配置tcc数据源：tcc.xml
 
+    3.2在需要调用的业务方法上增加：
+        @Compensable(confirmMethod = "confirmOrder", cancelMethod = "cancelOrder") 其中confirm指定确认方法，cancelMethod指定补偿方法
+
+        提供者（被调用方）：
+        @Compensable(confirmMethod = "confirmOrder", cancelMethod = "cancelOrder",
+                    transactionContextEditor = DubboTransactionContextEditor.class)
 4.使用
 
     4.1依赖dubbo及zookeeper,需要先启动本地的zookeeper
