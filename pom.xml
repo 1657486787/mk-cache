@@ -11,6 +11,7 @@
   <modules>
     <module>springmvc-cache</module>
     <module>springboot-cache</module>
+    <module>trans-2pc</module>
   </modules>
 
   <name>mk-cache</name>
