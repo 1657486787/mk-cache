@@ -12,6 +12,8 @@
     <module>springmvc-cache</module>
     <module>springboot-cache</module>
     <module>trans-2pc</module>
+      <module>tcc-one</module>
+    <module>tcc-two</module>
   </modules>
 
   <name>mk-cache</name>

@@ -9,6 +9,8 @@
         <module name="redis-lock" />
         <module name="springboot-cache" />
         <module name="springmvc-cache" />
+        <module name="tcc-one" />
+        <module name="tcc-two" />
         <module name="trans-2pc" />
       </profile>
     </annotationProcessing>

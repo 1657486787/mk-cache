@@ -3,6 +3,8 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/springmvc-cache" />
+    <file type="web" url="file://$PROJECT_DIR$/tcc-one" />
+    <file type="web" url="file://$PROJECT_DIR$/tcc-two" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
